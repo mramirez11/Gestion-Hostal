@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostal Eluney</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <script type="text/javascript" src="../controllers/controllerHabitacion.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../lib/assets/css/styles.min.css">
+    <link rel="stylesheet" href="../../lib/assets/css/main.css">
+
+    <!--Scripts del ngDialog-->
+    <link rel="stylesheet" href="../../bower_components/ng-dialog/css/ngDialog.min.css">
+    <link rel="stylesheet" href="../../bower_components/ng-dialog/css/ngDialog-theme-default.min.css">
+    <script src="../../bower_components/ng-dialog/js/ngDialog.min.js"></script>
+
+</head>
+
+<body ng-controller="habitacionCtrl">
+    <h1 style="font-size:72px; color:white; padding-left: 15%;padding-top: 2%;">Habitaciones</h1>
+    <div>
+        <div class="container  parallax-content" style="height:100vh;width:973px;">
+            <div class="col-12 col-md-10 col-lg-8 d-flex justify-content-center flex-column">
+                <div class="row">
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>Numero Habitación</th>
+                            <th>Detalle</th>
+                        </tr>
+                        <tr ng-repeat="habitacion in arrayHabitaciones">
+                            <td>img</td>
+                            <td> <button type="button" ng-click="clickToOpen(habitacion)" class="btn btn-primary">
+                                    +info {{habitacion.idHabitacion}}
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-primary" ng-click="clickToOpenDetalle(habitacion)" >
+                                    Ver detalle {{habitacion.idHabitacion}}
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <div class="parallax-placeholder" style="background-image:url(&quot;../../lib/assets/img/portada.jpeg&quot;);"></div>
+
+        <!-- Modales-->
+
+
+        <div class="modal fade" id="modalInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Habitacion N° 1</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Habitación: {{i.idHabitacion}} </h5>
+                        <h5>Cantidad de Camas: 3</h5>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalDetalleHabitacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Detalle Habitación</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table>
+                            <tr>
+                                <td>Check In</td>
+                                <td>Check Out</td>
+                                <td>Nombre Cliente</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="../../lib/assets/js/script.min.js"></script>
+</body>
+
+</html>
